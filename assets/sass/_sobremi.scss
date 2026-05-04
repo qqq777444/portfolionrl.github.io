@@ -1,0 +1,114 @@
+.page-sobremi {
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+}
+
+.sobremi {
+    width: 90%;
+    max-width: $header-max-width;
+    display: flex;
+    flex-direction: column;
+}
+
+.sobremi-foto-bloque {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border: 1px solid $color-black;
+    aspect-ratio: 2 / 1;
+    overflow: hidden;
+}
+
+.sobremi-foto {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+    }
+}
+
+.sobremi-cuadrado {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90px;
+    height: 90px;
+    background-color: $color-yellow;
+}
+
+.sobremi-amarillo {
+    position: relative;
+    background-color: $color-yellow;
+}
+
+.sobremi-recorte {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    width: 110px;
+    height: 75px;
+    overflow: hidden;
+
+    img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(2.2) translate(-10%, 10%);
+        display: block;
+    }
+}
+
+.sobremi-contacto {
+    position: absolute;
+    bottom: 1.25rem;
+    right: 1.25rem;
+    text-align: right;
+    font-size: .85rem;
+    line-height: 1.4;
+}
+
+.sobremi-titulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $color-yellow;
+    padding: 1rem 2rem;
+    z-index: 2;
+
+    h1 {
+        font-size: 1.75rem;
+        font-weight: 400;
+        letter-spacing: 2px;
+        white-space: nowrap;
+    }
+}
+
+.sobremi-texto-bloque {
+    border: 1px solid $color-black;
+    border-top: none;
+    padding: 2.5rem 4rem;
+}
+
+.sobremi-saludo {
+    margin-bottom: 1rem;
+    font-size: .95rem;
+}
+
+.sobremi-texto {
+    font-size: .95rem;
+    line-height: 1.6;
+    max-width: 70%;
+}

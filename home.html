@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body class="page-home">
+
+    <header class="header header-superior">
+        <a href="https://www.instagram.com/pplulul" target="_blank" class="header-logo">NagaRL</a>
+
+        <nav class="header-nav">
+            <a href="trabajos.html">galería</a>
+            <a href="sobremi.html">sobre-mí</a>
+            <a href="home.html" class="active">inicio</a>
+        </nav>
+    </header>
+
+    <main class="home">
+        <div class="home-caja">
+            <video class="home-video" src="./assets/video/dibujo.mp4" autoplay loop muted playsinline></video>
+            <h1 id="home-h1" class="home-bienvenida"></h1>
+        </div>
+    </main>
+
+    <script src="./assets/js/gsap.min.js"></script>
+    <script src="./assets/js/ScrambleTextPlugin.min.js"></script>
+    <script src="./assets/js/TextPlugin.min.js"></script>
+    <script src="./assets/js/transiciones.js"></script>
+    <script src="./assets/js/efectos.js"></script>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const titulo = document.querySelector("#home-h1");
+            window.escribirTexto(titulo, "HOLA, BIENVENID@", 1.5);
+        });
+    </script>
+</body>
+</html>

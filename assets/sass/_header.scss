@@ -1,0 +1,59 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    max-width: $header-max-width;
+    padding: $header-padding-y $header-padding-x;
+    font-family: $font-base;
+    border: 1px solid $color-black;
+    background-color: $color-white;
+    z-index: 10;
+
+    .header-logo {
+        font-size: .9rem;
+transition: color .2s ease;
+
+        &:hover {
+            color: $color-yellow;
+        }
+    }
+
+    .header-nav {
+        display: flex;
+        align-items: center;
+        gap: 1.5rem;
+
+        a {
+            font-size: .9rem;
+            transition: color .2s ease;
+
+            &:hover {
+                color: $color-yellow;
+            }
+
+            &.active {
+                color: $color-yellow;
+                text-decoration: underline;
+                text-underline-offset: 4px;
+                text-decoration-thickness: 2px;
+            }
+        }
+    }
+
+    .header-nav {
+        gap: 2rem;
+    }
+}
+
+// variante para el indexhtml para q esté centrado
+.header-index {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.header-superior {
+    margin: 2rem auto 0;
+}

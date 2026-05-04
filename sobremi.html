@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sobre mí</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="./assets/css/main.css">
+</head>
+<body class="page-sobremi">
+
+    <header class="header header-superior">
+        <a href="https://www.instagram.com/pplulul" target="_blank" class="header-logo">NagaRL</a>
+
+        <nav class="header-nav">
+            <a href="trabajos.html">galería</a>
+            <a href="sobremi.html" class="active">sobre-mí</a>
+            <a href="home.html">inicio</a>
+        </nav>
+    </header>
+
+    <main class="sobremi">
+
+        <section class="sobremi-foto-bloque">
+            <div class="sobremi-foto">
+                <img src="./assets/img/yo.jpg" alt="Foto de Naga">
+                <span class="sobremi-cuadrado"></span>
+            </div>
+
+            <div class="sobremi-amarillo">
+                <div class="sobremi-recorte">
+                    <img src="./assets/img/yo.jpg" alt="">
+                </div>
+
+                <div class="sobremi-contacto">
+                    <p>Contacto:</p>
+                    <p>nagarodriguezzz@gmail.com</p>
+                </div>
+            </div>
+
+            <div class="sobremi-titulo">
+                <h1 id="sobremi-h1"></h1>
+            </div>
+        </section>
+
+        <section class="sobremi-texto-bloque">
+            <p class="sobremi-saludo">Hola, soy Naga :)</p>
+            <p class="sobremi-texto">
+                Actualmente vivo en Madrid y soy diseñadora gráfica. Me gusta crear propuestas interesantes que llamen la atención, siempre curiosa y dispuesta a aprender, busco experimentar y colaborar con otros.
+            </p>
+        </section>
+
+    </main>
+
+    <script src="./assets/js/gsap.min.js"></script>
+    <script src="./assets/js/ScrambleTextPlugin.min.js"></script>
+    <script src="./assets/js/TextPlugin.min.js"></script>
+    <script src="./assets/js/transiciones.js"></script>
+    <script src="./assets/js/efectos.js"></script>
+    <script>
+        // Efecto typewriter en el título "SOBRE MÍ"
+        window.addEventListener("DOMContentLoaded", () => {
+            const titulo = document.querySelector("#sobremi-h1");
+            window.escribirTexto(titulo, "SOBRE MÍ", 1.2);
+        });
+    </script>
+</body>
+</html>

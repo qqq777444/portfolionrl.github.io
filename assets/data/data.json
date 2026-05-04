@@ -1,0 +1,57 @@
+[
+    {
+        "id": 1,
+        "nombre": "Visuales para la Fashion Week de Madrid",
+        "descripcion": "Este proyecto consiste en el diseño y creación de un sistema audiovisual para el desfile de cierre de la Madrid Fashion Week. En este caso el proyecto se basa en “Carta a Cecilia” de Mario Winnipeg, una colección se inspira en el folklore boliviano planteando una fusión entre lo tradicional y lo contemporáneo. Para ello se han creado una serie de visuales que acompañan a la música y a la pasarela, con el objetivo de crear una experiencia inmersiva para el público.",
+        "portada": "./assets/img/1.png",
+        "borde": "grueso",
+        "galeria": [
+            {"tipo": "video", "src": "./assets/video/fashionweek-1.mp4"},
+            {"tipo": "imagen", "src": "./assets/img/1.jpg"},
+            {"tipo": "video", "src": "./assets/video/fashionweek-2.mp4"}
+        ]
+    },
+    {
+        "id": 2,
+        "nombre": "Proyecto dos",
+        "descripcion": "No sé",
+        "portada": "./assets/img/2.jpg",
+        "borde": "fino",
+        "galeria": [
+            {"tipo": "imagen", "src": "./assets/img/5.jpg"}
+        ]
+    },
+    {
+        "id": 3,
+        "nombre": "Cómo saber si eres humano",
+        "descripcion": "Se trata de un fanzine experimental inspirado en un mundo distópico en donde las personas ya no saben distinguen entre lo que es humano y lo que no.",
+        "portada": "./assets/img/3.jpg",
+        "borde": "fino",
+        "galeria": [
+            {"tipo": "imagen", "src": "./assets/img/3.jpg"},
+            {"tipo": "video", "src": "./assets/video/fanzine-1.mp4"}
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Cuando se abre una puerta, se cierra una ventana",
+        "descripcion": "Vídeo en el cual se explora la técnica del collage animado, hecho en After Effects. El vídeo se basa en este refrán, y busca llevar al espectador a un lugar tranquilo.",
+        "portada": "./assets/img/4.png",
+        "borde": "fino",
+        "galeria": [
+            {"tipo": "video", "src": "./assets/video/collage-1.mp4"},
+            {"tipo": "video", "src": "./assets/video/collage-2.mp4"}
+
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Proyecto Cinco",
+        "descripcion": "Nosé",
+        "portada": "./assets/img/5.jpg",
+        "borde": "grueso",
+        "galeria": [
+            {"tipo": "imagen", "src": "./assets/img/5.jpg"}
+        ]
+    }
+]
