@@ -5,7 +5,7 @@
         "descripcion": "Este proyecto consiste en el diseño y creación de un sistema audiovisual para el desfile de cierre de la Madrid Fashion Week. En este caso el proyecto se basa en \"Carta a Cecilia\" de Mario Winnipeg, una colección se inspira en el folklore boliviano planteando una fusión entre lo tradicional y lo contemporáneo. Para ello se han creado una serie de visuales que acompañan a la música y a la pasarela, con el objetivo de crear una experiencia inmersiva para el público.",
         "portada": "./assets/img/1.png",
         "borde": "grueso",
-        "etiquetas": ["motion graphics", "experimental", "after effects", "responsive arena", "reactive"],
+        "etiquetas": ["motion graphics", "experimental", "after effects", "resolume arena", "reactivo"],
         "galeria": [
             {"tipo": "video", "src": "./assets/video/fashionweek-1.mp4"},
             {"tipo": "imagen", "src": "./assets/img/1.jpg"},
@@ -14,11 +14,11 @@
     },
     {
         "id": 2,
-        "nombre": "Proyecto dos",
-        "descripcion": "No sé",
+        "nombre": "Rediseño de Rakuten TV",
+        "descripcion": "Se tiene por objetivo el renovar la identidad de esta marca refrescando, modernizando y poniéndole una cara más simpática a la empresa. Teniendo en cuenta las conclusiones de que se busca diferenciar mucho más claramente el contenido premium del gratuito y renovar el look de la marca pues aporta poca confianza,el nuevo Rakuten TV quiere ser para ti la plataforma de streaming más simpática. Es por ello que ante la frialdad del mercado, el motion desaprovechado y la necesidad de encontrar punto medio entre simpático y profesional, se crea este rediseño. ",
         "portada": "./assets/img/2.jpg",
         "borde": "fino",
-        "etiquetas": ["editorial", "visual"],
+        "etiquetas": ["branding", "rediseño", "after effects", "illustrator", "photoshop", "figma", "visual studio code", "motion"],
         "galeria": [
             {"tipo": "imagen", "src": "./assets/img/5.jpg"}
         ]
@@ -26,10 +26,10 @@
     {
         "id": 3,
         "nombre": "Cómo saber si eres humano",
-        "descripcion": "Se trata de un fanzine experimental inspirado en un mundo distópico en donde las personas ya no saben distinguen entre lo que es humano y lo que no.",
+        "descripcion": "Se trata de un fanzine experimental inspirado en un mundo distópico en donde las personas ya no saben distinguir entre lo que es humano y lo que no. Lo interesante de esta publicación es que se trata de un proyecto que permite experimentar con las diferentes opciones que se tiene dentro del diseño editorial, jugando con diferentes formatos y saliendo de las convenciones.",
         "portada": "./assets/img/3.jpg",
         "borde": "fino",
-        "etiquetas": ["fanzine", "experimental", "editorial"],
+        "etiquetas": ["fanzine", "experimental", "indesign", "photoshop", "editorial", "serigrafia"],
         "galeria": [
             {"tipo": "imagen", "src": "./assets/img/3.jpg"},
             {"tipo": "video", "src": "./assets/video/fanzine-1.mp4"}
@@ -38,7 +38,7 @@
     {
         "id": 4,
         "nombre": "Cuando se abre una puerta, se cierra una ventana",
-        "descripcion": "Vídeo en el cual se explora la técnica del collage animado, hecho en After Effects. El vídeo se basa en este refrán, y busca llevar al espectador a un lugar tranquilo.",
+        "descripcion": "Vídeo en el cual se explora la técnica del collage animado, hecho en After Effects. El vídeo se basa en este refrán, y busca llevar al espectador a un lugar tranquilo. Consta de una versión corta y una larga, con la diferenciación principal en el formato, siendo una 9:16 y la otra 1:1, respectivamente.",
         "portada": "./assets/img/4.png",
         "borde": "fino",
         "etiquetas": ["collage", "animacion", "after effects"],

@@ -14,6 +14,51 @@ body {
     min-height: 100vh;
 }
 
+body.cursor-activo,
+body.cursor-activo * {
+    cursor: none !important;
+}
+
+.cursor-personalizado {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 38px;
+    height: 38px;
+    margin-top: -19px;
+    margin-left: -19px;
+    border-radius: 50%;
+    background-color: $color-yellow;
+    pointer-events: none;
+    z-index: 10000;
+    transition: width .22s ease, height .22s ease, margin .22s ease;
+}
+
+.cursor-personalizado.sobre-hover {
+    width: 16px;
+    height: 16px;
+    margin-top: -8px;
+    margin-left: -8px;
+}
+
+.cursor-personalizado.pulsando {
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    margin-left: -5px;
+}
+
+@media (pointer: coarse) {
+    body.cursor-activo,
+    body.cursor-activo * {
+        cursor: auto !important;
+    }
+
+    .cursor-personalizado {
+        display: none;
+    }
+}
+
 a {
     text-decoration: none;
     color: inherit;

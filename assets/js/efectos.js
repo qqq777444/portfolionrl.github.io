@@ -3,6 +3,45 @@
 // Registramos el plugin (necesario para que funcione)
 gsap.registerPlugin(ScrambleTextPlugin, TextPlugin);
 
+// ----- Cursor personalizado -----
+const cursor = document.createElement("div");
+cursor.className = "cursor-personalizado";
+document.body.appendChild(cursor);
+document.body.classList.add("cursor-activo");
+gsap.set(cursor, {
+    x: window.innerWidth / 2,
+    y: window.innerHeight / 2
+});
+
+window.addEventListener("mousemove", (e) => {
+    gsap.to(cursor, {
+        x: e.clientX,
+        y: e.clientY,
+        duration: 0.18,
+        ease: "power2.out"
+    });
+});
+
+window.addEventListener("mousedown", () => {
+    cursor.classList.add("pulsando");
+});
+
+window.addEventListener("mouseup", () => {
+    cursor.classList.remove("pulsando");
+});
+
+document.addEventListener("mouseover", (e) => {
+    if (e.target.closest("a, button, .burbuja-trabajo, .overlay-galeria img, .overlay-galeria video")) {
+        cursor.classList.add("sobre-hover");
+    }
+});
+
+document.addEventListener("mouseout", (e) => {
+    if (e.target.closest("a, button, .burbuja-trabajo, .overlay-galeria img, .overlay-galeria video")) {
+        cursor.classList.remove("sobre-hover");
+    }
+});
+
 // ----- 1. SCRAMBLE TEXT en los enlaces del header -----
 document.querySelectorAll(".header a").forEach(enlace => {
     const textoOriginal = enlace.textContent;

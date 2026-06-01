@@ -6,6 +6,7 @@ const overlayContenido = document.querySelector("#overlay-contenido");
 const overlayCerrar = document.querySelector("#overlay-cerrar");
 
 let proyectos = [];
+let visorMedia;
 
 const crearEtiquetas = (etiquetas = []) => {
     if (!etiquetas.length) return "";
@@ -17,6 +18,58 @@ const crearEtiquetas = (etiquetas = []) => {
     `;
 };
 
+const pausarVideosGaleria = () => {
+    overlayContenido.querySelectorAll("video").forEach(video => {
+        video.pause();
+    });
+};
+
+const crearVisorMedia = () => {
+    visorMedia = document.createElement("div");
+    visorMedia.className = "visor-media";
+    visorMedia.innerHTML = `
+        <div class="visor-media-caja">
+            <button class="visor-media-cerrar" type="button">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="visor-media-contenido"></div>
+        </div>
+    `;
+    document.body.appendChild(visorMedia);
+
+    visorMedia.addEventListener("click", (e) => {
+        if (e.target === visorMedia || e.target.closest(".visor-media-cerrar")) {
+            cerrarVisorMedia();
+        }
+    });
+
+    window.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && visorMedia.classList.contains("activo")) {
+            cerrarVisorMedia();
+        }
+    });
+};
+
+const abrirVisorMedia = (tipo, src, alt = "") => {
+    const contenido = visorMedia.querySelector(".visor-media-contenido");
+
+    if (tipo === "video") {
+        pausarVideosGaleria();
+    }
+
+    contenido.innerHTML = tipo === "video"
+        ? `<video src="${src}" controls autoplay></video>`
+        : `<img src="${src}" alt="${alt}">`;
+
+    visorMedia.classList.add("activo");
+};
+
+const cerrarVisorMedia = () => {
+    const contenido = visorMedia.querySelector(".visor-media-contenido");
+    visorMedia.classList.remove("activo");
+    contenido.innerHTML = "";
+};
+
 
 // 1. Cargar JSON y pintar burbujas
 fetch("./assets/data/data.json")
@@ -25,6 +78,7 @@ fetch("./assets/data/data.json")
         proyectos = data;
         pintarBurbujas();
         animarBurbujas();
+        crearVisorMedia();
     })
     .catch(error => console.error("Error cargando JSON:", error));
 
@@ -107,11 +161,16 @@ const abrirOverlay = (proyecto) => {
     let galeriaHTML = "";
     proyecto.galeria.forEach(item => {
         if (typeof item === "string") {
-            galeriaHTML += `<img src="${item}" alt="${proyecto.nombre}">`;
+            galeriaHTML += `<img class="overlay-media" src="${item}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item}">`;
         } else if (item.tipo === "video") {
-            galeriaHTML += `<video src="${item.src}" controls></video>`;
+            galeriaHTML += `
+                <button class="overlay-media overlay-video-thumb" type="button" data-tipo="video" data-src="${item.src}" aria-label="Abrir video">
+                    <video src="${item.src}" muted preload="metadata" playsinline tabindex="-1"></video>
+                    <span class="overlay-video-play"></span>
+                </button>
+            `;
         } else {
-            galeriaHTML += `<img src="${item.src}" alt="${proyecto.nombre}">`;
+            galeriaHTML += `<img class="overlay-media" src="${item.src}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item.src}">`;
         }
     });
 
@@ -130,6 +189,12 @@ const abrirOverlay = (proyecto) => {
 
     const titulo = overlayContenido.querySelector(".overlay-titulo");
     window.escribirTexto(titulo, proyecto.nombre.toUpperCase());
+
+    overlayContenido.querySelectorAll(".overlay-media").forEach(media => {
+        media.addEventListener("click", () => {
+            abrirVisorMedia(media.dataset.tipo, media.dataset.src, proyecto.nombre);
+        });
+    });
 };
 
 
