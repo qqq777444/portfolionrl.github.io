@@ -1,4 +1,4 @@
-// ---------- Galería de trabajos ----------
+// ---------- Galeria de trabajos ----------
 
 const contenedor = document.querySelector("#trabajos");
 const overlay = document.querySelector("#overlay");
@@ -6,6 +6,16 @@ const overlayContenido = document.querySelector("#overlay-contenido");
 const overlayCerrar = document.querySelector("#overlay-cerrar");
 
 let proyectos = [];
+
+const crearEtiquetas = (etiquetas = []) => {
+    if (!etiquetas.length) return "";
+
+    return `
+        <ul class="overlay-etiquetas">
+            ${etiquetas.map(etiqueta => `<li>${etiqueta}</li>`).join("")}
+        </ul>
+    `;
+};
 
 
 // 1. Cargar JSON y pintar burbujas
@@ -24,11 +34,10 @@ const pintarBurbujas = () => {
     let html = "";
 
     proyectos.forEach((proyecto, i) => {
-        const claseBorde = proyecto.borde === "grueso" ? "borde-grueso" : "borde-fino";
         const clasePosicion = `burbuja-trabajo-${i + 1}`;
 
         html += `
-            <div class="burbuja-trabajo ${clasePosicion} ${claseBorde}" data-id="${proyecto.id}">
+            <div class="burbuja-trabajo ${clasePosicion}" data-id="${proyecto.id}">
                 <img src="${proyecto.portada}" alt="${proyecto.nombre}">
             </div>
         `;
@@ -38,11 +47,10 @@ const pintarBurbujas = () => {
 };
 
 
-// 3. Animar las burbujas: aparición + flotar + reacción al ratón
+// 3. Animar las burbujas: aparicion + flotar + reaccion al raton
 const animarBurbujas = () => {
     const burbujas = document.querySelectorAll(".burbuja-trabajo");
 
-    // Aparición con escala desde 0.5 hasta 1
     gsap.from(burbujas, {
         opacity: 0,
         scale: 0.5,
@@ -50,7 +58,6 @@ const animarBurbujas = () => {
         stagger: 0.1,
         ease: "back.out(1.4)",
         onComplete: () => {
-            // Cuando termina la aparición, empieza el flotar continuo
             burbujas.forEach(burbuja => {
                 gsap.to(burbuja, {
                     x: gsap.utils.random(-25, 25),
@@ -64,7 +71,6 @@ const animarBurbujas = () => {
         }
     });
 
-    // Reacción sutil al movimiento del ratón
     window.addEventListener("mousemove", (e) => {
         const x = (e.clientX / window.innerWidth - 0.5) * 2;
         const y = (e.clientY / window.innerHeight - 0.5) * 2;
@@ -83,7 +89,7 @@ const animarBurbujas = () => {
 };
 
 
-// 4. Click en burbuja → abrir overlay con la info del proyecto
+// 4. Click en burbuja -> abrir overlay con la info del proyecto
 contenedor.addEventListener("click", (e) => {
     const burbuja = e.target.closest(".burbuja-trabajo");
     if (!burbuja) return;
@@ -103,27 +109,25 @@ const abrirOverlay = (proyecto) => {
         if (typeof item === "string") {
             galeriaHTML += `<img src="${item}" alt="${proyecto.nombre}">`;
         } else if (item.tipo === "video") {
-            galeriaHTML += `<video src="${item.src}" controls style="width:100%;display:block;"></video>`;
+            galeriaHTML += `<video src="${item.src}" controls></video>`;
         } else {
-            const style = item.ancho && item.alto
-                ? `width:100%;height:${item.alto}px;object-fit:cover;display:block;`
-                : `display:block;`;
-            galeriaHTML += `<img src="${item.src}" alt="${proyecto.nombre}" style="${style}">`;
+            galeriaHTML += `<img src="${item.src}" alt="${proyecto.nombre}">`;
         }
     });
 
     overlayContenido.innerHTML = `
-        <h2 class="overlay-titulo"></h2>
-        <p class="overlay-descripcion">${proyecto.descripcion}</p>
-        <h3 class="overlay-galeria-titulo">Galería</h3>
         <div class="overlay-galeria">
             ${galeriaHTML}
+        </div>
+        <div class="overlay-info">
+            <h2 class="overlay-titulo"></h2>
+            ${crearEtiquetas(proyecto.etiquetas)}
+            <p class="overlay-descripcion">${proyecto.descripcion}</p>
         </div>
     `;
 
     overlay.classList.add("activo");
 
-    // Efecto typewriter en el título
     const titulo = overlayContenido.querySelector(".overlay-titulo");
     window.escribirTexto(titulo, proyecto.nombre.toUpperCase());
 };
