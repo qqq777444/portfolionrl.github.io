@@ -3,7 +3,7 @@
         "id": 1,
         "nombre": "Visuales para la Fashion Week de Madrid",
         "descripcion": "Este proyecto consiste en el diseño y creación de un sistema audiovisual para el desfile de cierre de la Madrid Fashion Week. En este caso el proyecto se basa en \"Carta a Cecilia\" de Mario Winnipeg, una colección se inspira en el folklore boliviano planteando una fusión entre lo tradicional y lo contemporáneo. Para ello se han creado una serie de visuales que acompañan a la música y a la pasarela, con el objetivo de crear una experiencia inmersiva para el público.",
-        "portada": "./assets/img/1.png",
+        "portada": "./assets/img/2.jpg",
         "borde": "grueso",
         "etiquetas": ["motion graphics", "experimental", "after effects", "resolume arena", "reactivo"],
         "galeria": [
@@ -15,23 +15,35 @@
     {
         "id": 2,
         "nombre": "Rediseño de Rakuten TV",
-        "descripcion": "Se tiene por objetivo el renovar la identidad de esta marca refrescando, modernizando y poniéndole una cara más simpática a la empresa. Teniendo en cuenta las conclusiones de que se busca diferenciar mucho más claramente el contenido premium del gratuito y renovar el look de la marca pues aporta poca confianza,el nuevo Rakuten TV quiere ser para ti la plataforma de streaming más simpática. Es por ello que ante la frialdad del mercado, el motion desaprovechado y la necesidad de encontrar punto medio entre simpático y profesional, se crea este rediseño. ",
-        "portada": "./assets/img/2.jpg",
+        "descripcion": "Se tiene por objetivo el renovar la identidad de esta marca refrescando, modernizando y poniéndole una cara más simpática a la empresa. Teniendo en cuenta las conclusiones de que se busca diferenciar mucho más claramente el contenido premium del gratuito y renovar el look de la marca pues aporta poca confianza,el nuevo Rakuten TV quiere ser para ti la plataforma de streaming más simpática. Es por ello que ante la frialdad del mercado, el motion desaprovechado y la necesidad de encontrar punto medio entre simpático y profesional, se crea este rediseño. Lo más importante que se hizo en este proyecto fue un manual de marca en el cual se debía de especificar todas las aplicaciones de la misma explicando con todo detalle cada una de las decisiones tomadas para Rakuten TV.",
+        "portada": "./assets/img/22.jpg",
         "borde": "fino",
         "etiquetas": ["branding", "rediseño", "after effects", "illustrator", "photoshop", "figma", "visual studio code", "motion"],
         "galeria": [
-            {"tipo": "imagen", "src": "./assets/img/5.jpg"}
+            {"tipo": "video", "src": "./assets/video/rakuten1.mp4"},
+            {"tipo": "imagen", "src": "./assets/img/rakuten3.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/rakuten4.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/rakuten6.jpeg"},
+            {"tipo": "imagen", "src": "./assets/img/rakuten2.jpg"},
+            {"tipo": "video", "src": "./assets/video/rakuten7.mp4"}
         ]
     },
     {
         "id": 3,
-        "nombre": "Cómo saber si eres humano",
+        "nombre": "Anomalías",
         "descripcion": "Se trata de un fanzine experimental inspirado en un mundo distópico en donde las personas ya no saben distinguir entre lo que es humano y lo que no. Lo interesante de esta publicación es que se trata de un proyecto que permite experimentar con las diferentes opciones que se tiene dentro del diseño editorial, jugando con diferentes formatos y saliendo de las convenciones.",
         "portada": "./assets/img/3.jpg",
         "borde": "fino",
         "etiquetas": ["fanzine", "experimental", "indesign", "photoshop", "editorial", "serigrafia"],
         "galeria": [
+            {"tipo": "imagen", "src": "./assets/img/anomalias.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/anomalias2.jpg"},
             {"tipo": "imagen", "src": "./assets/img/3.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/anomalias1.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/anomalias5.png"},
+            {"tipo": "imagen", "src": "./assets/img/anomalias3.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/anomalias6.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/anomalias8.png"},
             {"tipo": "video", "src": "./assets/video/fanzine-1.mp4"}
         ]
     },
@@ -49,13 +61,18 @@
     },
     {
         "id": 5,
-        "nombre": "Proyecto Cinco",
-        "descripcion": "Nosé",
-        "portada": "./assets/img/5.jpg",
+        "nombre": "Desenrédate",
+        "descripcion": "COBACH, la educación pública superior en Méxic, quiere crear una campaña sobre juventud, redes sociales y bienestar digital. La iniciativa abordará una perspectiva positiva, cercana y no patologizante, buscando romper el estigma en torno a la saturación tecnológica, enseñar a identificar señales de malestar y fomentar redes de apoyo mutuo para el autocuidado emocional. Es aquí donde se desarrolla una campaña que proponga abordar el tema mediante la conversación en talleres y también haciendo uso de una página web en la cual se podrán encontrar, recursos, consejos y un espacio seguro para poder tratar los casos concretos de los alumnos que necesiten ayuda. La temática principal de la campaña propone redefinir el concepto de red social a través de la metáfora de una red tejida, cruzando el lenguaje textil maya con el lenguaje de las interfaces digitales (UI).",
+        "portada": "./assets/img/5.png",
         "borde": "grueso",
         "etiquetas": ["visual", "archivo"],
         "galeria": [
-            {"tipo": "imagen", "src": "./assets/img/5.jpg"}
+            {"tipo": "imagen", "src": "./assets/img/desenredate1.jpg"},
+            {"tipo": "video", "src": "./assets/video/desenredate5.mp4"},
+            {"tipo": "video", "src": "./assets/video/desenredate2.mp4"},
+            {"tipo": "imagen", "src": "./assets/img/desenredate3.png"},
+            {"tipo": "video", "src": "./assets/video/desenredate4.mp4"}
+
         ]
     }
 ]

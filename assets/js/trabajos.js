@@ -164,10 +164,23 @@ const abrirOverlay = (proyecto) => {
             galeriaHTML += `<img class="overlay-media" src="${item}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item}">`;
         } else if (item.tipo === "video") {
             galeriaHTML += `
-                <button class="overlay-media overlay-video-thumb" type="button" data-tipo="video" data-src="${item.src}" aria-label="Abrir video">
-                    <video src="${item.src}" muted preload="metadata" playsinline tabindex="-1"></video>
-                    <span class="overlay-video-play"></span>
-                </button>
+                <div class="overlay-video">
+                    <video class="overlay-media" src="${item.src}" playsinline preload="metadata"></video>
+                    <button class="overlay-video-play" type="button" aria-label="Reproducir vídeo">
+                        <svg viewBox="0 0 44 44" width="44" height="44" aria-hidden="true">
+                            <polygon points="16,11 35,22 16,33" fill="#ffffff" stroke="#000000" stroke-width="1" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                    <div class="overlay-video-controles">
+                        <div class="overlay-video-barra">
+                            <div class="overlay-video-progreso"></div>
+                            <span class="overlay-video-marcador"></span>
+                        </div>
+                        <button class="overlay-video-ampliar" type="button" data-tipo="video" data-src="${item.src}" aria-label="Ver vídeo en grande">
+                            <span class="material-symbols-outlined">open_in_full</span>
+                        </button>
+                    </div>
+                </div>
             `;
         } else {
             galeriaHTML += `<img class="overlay-media" src="${item.src}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item.src}">`;
@@ -190,10 +203,90 @@ const abrirOverlay = (proyecto) => {
     const titulo = overlayContenido.querySelector(".overlay-titulo");
     window.escribirTexto(titulo, proyecto.nombre.toUpperCase());
 
-    overlayContenido.querySelectorAll(".overlay-media").forEach(media => {
+    overlayContenido.querySelectorAll("img.overlay-media").forEach(media => {
         media.addEventListener("click", () => {
             abrirVisorMedia(media.dataset.tipo, media.dataset.src, proyecto.nombre);
         });
+    });
+
+    // Botón para abrir el vídeo en grande, con la interfaz de reproducción
+    // por defecto del navegador (visor flotante existente).
+    overlayContenido.querySelectorAll(".overlay-video-ampliar").forEach(boton => {
+        boton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            const contenedor = boton.closest(".overlay-video");
+            const video = contenedor?.querySelector("video");
+            if (video) video.pause();
+            abrirVisorMedia(boton.dataset.tipo, boton.dataset.src, proyecto.nombre);
+        });
+    });
+
+    // Vídeos con interfaz de reproducción sencilla: miniatura con icono de
+    // play, y al reproducir aparece una línea de tiempo minimalista propia.
+    overlayContenido.querySelectorAll(".overlay-video").forEach(contenedor => {
+        const video = contenedor.querySelector("video");
+        const boton = contenedor.querySelector(".overlay-video-play");
+        const barra = contenedor.querySelector(".overlay-video-barra");
+        const progreso = contenedor.querySelector(".overlay-video-progreso");
+        const marcador = contenedor.querySelector(".overlay-video-marcador");
+
+        let arrastrando = false;
+
+        const actualizarBarra = () => {
+            if (!video.duration) return;
+            const porcentaje = Math.min(Math.max(video.currentTime / video.duration, 0), 1) * 100;
+            progreso.style.width = `${porcentaje}%`;
+            marcador.style.left = `${porcentaje}%`;
+        };
+
+        const buscarPosicion = (e) => {
+            if (!video.duration) return;
+            const rect = barra.getBoundingClientRect();
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const ratio = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1);
+            video.currentTime = ratio * video.duration;
+            actualizarBarra();
+        };
+
+        boton.addEventListener("click", (e) => {
+            e.stopPropagation();
+            video.play();
+        });
+
+        video.addEventListener("click", () => {
+            if (video.paused) {
+                video.play();
+            } else {
+                video.pause();
+            }
+        });
+
+        video.addEventListener("play", () => {
+            contenedor.classList.add("reproduciendo");
+            contenedor.classList.add("iniciado");
+        });
+        video.addEventListener("pause", () => contenedor.classList.remove("reproduciendo"));
+        video.addEventListener("ended", () => contenedor.classList.remove("reproduciendo"));
+        video.addEventListener("timeupdate", actualizarBarra);
+        video.addEventListener("loadedmetadata", actualizarBarra);
+
+        barra.addEventListener("mousedown", (e) => {
+            arrastrando = true;
+            buscarPosicion(e);
+        });
+        barra.addEventListener("touchstart", (e) => {
+            arrastrando = true;
+            buscarPosicion(e);
+        });
+
+        window.addEventListener("mousemove", (e) => {
+            if (arrastrando) buscarPosicion(e);
+        });
+        window.addEventListener("touchmove", (e) => {
+            if (arrastrando) buscarPosicion(e);
+        });
+        window.addEventListener("mouseup", () => { arrastrando = false; });
+        window.addEventListener("touchend", () => { arrastrando = false; });
     });
 };
 
@@ -201,6 +294,7 @@ const abrirOverlay = (proyecto) => {
 // 6. Cerrar overlay con la X
 overlayCerrar.addEventListener("click", () => {
     overlay.classList.remove("activo");
+    pausarVideosGaleria();
 });
 
 
@@ -208,5 +302,6 @@ overlayCerrar.addEventListener("click", () => {
 overlay.addEventListener("click", (e) => {
     if (e.target === overlay) {
         overlay.classList.remove("activo");
+        pausarVideosGaleria();
     }
 });
