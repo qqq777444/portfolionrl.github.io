@@ -19,6 +19,12 @@
         height: 100%;
         object-fit: cover;
         display: block;
+        filter: grayscale(100%);
+        transition: filter .3s ease;
+    }
+
+    &:hover img {
+        filter: grayscale(0%);
     }
 
 }
@@ -27,35 +33,42 @@
     width: 320px;
     height: 320px;
     top: -20px;
-    right: 30%;
+    right: calc(30% - 50px);
 }
 
 .burbuja-trabajo-2 {
     width: 360px;
     height: 360px;
     top: 280px;
-    left: 0;
+    left: 50px;
 }
 
 .burbuja-trabajo-3 {
     width: 180px;
     height: 180px;
     top: 300px;
-    right: 25%;
+    right: calc(25% - 50px);
 }
 
 .burbuja-trabajo-4 {
     width: 130px;
     height: 130px;
     top: 510px;
-    left: 45%;
+    left: calc(45% + 50px);
 }
 
 .burbuja-trabajo-5 {
     width: 280px;
     height: 280px;
-    bottom: 70px;
-    right: 20%;
+    bottom: 40px;
+    right: calc(35% - 50px);
+}
+
+.burbuja-trabajo-6 {
+    width: 160px;
+    height: 160px;
+    top: 100px;
+    left: calc(5% + 50px);
 }
 
 
@@ -215,6 +228,36 @@
         height: auto;
         display: block;
         background-color: $color-black;
+    }
+}
+
+// Vídeo de Vimeo embebido, mantiene proporción 16:9.
+.overlay-vimeo {
+    position: relative;
+    width: 100%;
+
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        border: none;
+    }
+}
+
+// Contenedor para items de galería que deben aparecer sin gap entre ellos.
+.overlay-galeria-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+
+    img {
+        width: 100%;
+        height: auto;
+        display: block;
+        cursor: pointer;
     }
 }
 

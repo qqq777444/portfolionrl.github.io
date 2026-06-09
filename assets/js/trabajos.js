@@ -22,6 +22,10 @@ const pausarVideosGaleria = () => {
     overlayContenido.querySelectorAll("video").forEach(video => {
         video.pause();
     });
+    // Detener iframes de Vimeo reseteando su src
+    overlayContenido.querySelectorAll(".overlay-vimeo iframe").forEach(iframe => {
+        iframe.src = iframe.src;
+    });
 };
 
 const crearVisorMedia = () => {
@@ -158,12 +162,19 @@ contenedor.addEventListener("click", (e) => {
 
 // 5. Inyectar contenido del proyecto en el overlay
 const abrirOverlay = (proyecto) => {
-    let galeriaHTML = "";
-    proyecto.galeria.forEach(item => {
+    // Construir HTML de un único item de galería
+    const itemHTML = (item) => {
         if (typeof item === "string") {
-            galeriaHTML += `<img class="overlay-media" src="${item}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item}">`;
+            return `<img class="overlay-media" src="${item}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item}">`;
+        } else if (item.tipo === "vimeo") {
+            const ratio = item.ratio || "16/9";
+            return `
+                <div class="overlay-vimeo" style="aspect-ratio: ${ratio}">
+                    <iframe src="https://player.vimeo.com/video/${item.src}?title=0&byline=0&portrait=0&color=ffffff" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            `;
         } else if (item.tipo === "video") {
-            galeriaHTML += `
+            return `
                 <div class="overlay-video">
                     <video class="overlay-media" src="${item.src}" playsinline preload="metadata"></video>
                     <button class="overlay-video-play" type="button" aria-label="Reproducir vídeo">
@@ -183,9 +194,33 @@ const abrirOverlay = (proyecto) => {
                 </div>
             `;
         } else {
-            galeriaHTML += `<img class="overlay-media" src="${item.src}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item.src}">`;
+            return `<img class="overlay-media" src="${item.src}" alt="${proyecto.nombre}" data-tipo="imagen" data-src="${item.src}">`;
         }
-    });
+    };
+
+    // Agrupar items consecutivos que compartan la misma propiedad "grupo"
+    // en un contenedor .overlay-galeria-grupo (sin gap interno entre ellos).
+    let galeriaHTML = "";
+    let i = 0;
+    const galeria = proyecto.galeria;
+    while (i < galeria.length) {
+        const item = galeria[i];
+        const grupo = typeof item === "object" && item.grupo;
+        if (grupo) {
+            // Recoger todos los consecutivos del mismo grupo
+            let j = i;
+            let grupoHTML = "";
+            while (j < galeria.length && typeof galeria[j] === "object" && galeria[j].grupo === grupo) {
+                grupoHTML += itemHTML(galeria[j]);
+                j++;
+            }
+            galeriaHTML += `<div class="overlay-galeria-grupo">${grupoHTML}</div>`;
+            i = j;
+        } else {
+            galeriaHTML += itemHTML(item);
+            i++;
+        }
+    }
 
     overlayContenido.innerHTML = `
         <div class="overlay-galeria">

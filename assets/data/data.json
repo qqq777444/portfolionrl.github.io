@@ -7,9 +7,9 @@
         "borde": "grueso",
         "etiquetas": ["motion graphics", "experimental", "after effects", "resolume arena", "reactivo"],
         "galeria": [
-            {"tipo": "video", "src": "./assets/video/fashionweek-1.mp4"},
+            {"tipo": "vimeo", "src": "1199747684", "ratio": "4/5"},
             {"tipo": "imagen", "src": "./assets/img/1.jpg"},
-            {"tipo": "video", "src": "./assets/video/fashionweek-2.mp4"}
+            {"tipo": "vimeo", "src": "1199747706", "ratio": "9/16"}
         ]
     },
     {
@@ -18,14 +18,40 @@
         "descripcion": "Se tiene por objetivo el renovar la identidad de esta marca refrescando, modernizando y poniéndole una cara más simpática a la empresa. Teniendo en cuenta las conclusiones de que se busca diferenciar mucho más claramente el contenido premium del gratuito y renovar el look de la marca pues aporta poca confianza,el nuevo Rakuten TV quiere ser para ti la plataforma de streaming más simpática. Es por ello que ante la frialdad del mercado, el motion desaprovechado y la necesidad de encontrar punto medio entre simpático y profesional, se crea este rediseño. Lo más importante que se hizo en este proyecto fue un manual de marca en el cual se debía de especificar todas las aplicaciones de la misma explicando con todo detalle cada una de las decisiones tomadas para Rakuten TV.",
         "portada": "./assets/img/22.jpg",
         "borde": "fino",
-        "etiquetas": ["branding", "rediseño", "after effects", "illustrator", "photoshop", "figma", "visual studio code", "motion"],
+        "etiquetas": ["branding", "motion", "rediseño", "after effects", "illustrator", "photoshop", "figma", "visual studio code"],
         "galeria": [
-            {"tipo": "video", "src": "./assets/video/rakuten1.mp4"},
+            {"tipo": "vimeo", "src": "1199747710"},
             {"tipo": "imagen", "src": "./assets/img/rakuten3.jpg"},
             {"tipo": "imagen", "src": "./assets/img/rakuten4.jpg"},
             {"tipo": "imagen", "src": "./assets/img/rakuten6.jpeg"},
             {"tipo": "imagen", "src": "./assets/img/rakuten2.jpg"},
-            {"tipo": "video", "src": "./assets/video/rakuten7.mp4"}
+            {"tipo": "vimeo", "src": "1199747714"}
+        ]
+    },
+    {
+        "id": 5,
+        "nombre": "Desenrédate",
+        "descripcion": "COBACH, la educación pública superior en Méxic, quiere crear una campaña sobre juventud, redes sociales y bienestar digital. La iniciativa abordará una perspectiva positiva, cercana y no patologizante, buscando romper el estigma en torno a la saturación tecnológica, enseñar a identificar señales de malestar y fomentar redes de apoyo mutuo para el autocuidado emocional. Es aquí donde se desarrolla una campaña que proponga abordar el tema mediante la conversación en talleres y también haciendo uso de una página web en la cual se podrán encontrar, recursos, consejos y un espacio seguro para poder tratar los casos concretos de los alumnos que necesiten ayuda. La temática principal de la campaña propone redefinir el concepto de red social a través de la metáfora de una red tejida, cruzando el lenguaje textil maya con el lenguaje de las interfaces digitales (UI).",
+        "portada": "./assets/img/5.png",
+        "borde": "grueso",
+        "etiquetas": ["campaña", "dirección de arte", "after effects", "figma"],
+        "galeria": [
+            {"tipo": "imagen", "src": "./assets/img/desenredate1.jpg", "grupo": "compacto"},
+            {"tipo": "vimeo", "src": "1199747625", "grupo": "compacto"},
+            {"tipo": "imagen", "src": "./assets/img/desenredate3.png", "grupo": "compacto"},
+            {"tipo": "vimeo", "src": "1199747627"}
+        ]
+    },
+    {
+        "id": 4,
+        "nombre": "Cuando se abre una puerta, se cierra una ventana",
+        "descripcion": "Vídeo en el cual se explora la técnica del collage animado, hecho en After Effects. El vídeo se basa en este refrán, y busca llevar al espectador a un lugar tranquilo. Consta de una versión corta y una larga, con la diferenciación principal en el formato, siendo una 9:16 y la otra 1:1, respectivamente.",
+        "portada": "./assets/img/4.png",
+        "borde": "fino",
+        "etiquetas": ["collage", "motion", "after effects"],
+        "galeria": [
+            {"tipo": "vimeo", "src": "1199747628", "ratio": "1/1"},
+            {"tipo": "vimeo", "src": "1199747629", "ratio": "9/16"}
         ]
     },
     {
@@ -44,35 +70,22 @@
             {"tipo": "imagen", "src": "./assets/img/anomalias3.jpg"},
             {"tipo": "imagen", "src": "./assets/img/anomalias6.jpg"},
             {"tipo": "imagen", "src": "./assets/img/anomalias8.png"},
-            {"tipo": "video", "src": "./assets/video/fanzine-1.mp4"}
+            {"tipo": "vimeo", "src": "1199747663", "ratio": "4/5"}
         ]
     },
     {
-        "id": 4,
-        "nombre": "Cuando se abre una puerta, se cierra una ventana",
-        "descripcion": "Vídeo en el cual se explora la técnica del collage animado, hecho en After Effects. El vídeo se basa en este refrán, y busca llevar al espectador a un lugar tranquilo. Consta de una versión corta y una larga, con la diferenciación principal en el formato, siendo una 9:16 y la otra 1:1, respectivamente.",
-        "portada": "./assets/img/4.png",
+        "id": 6,
+        "nombre": "Luisa Fernanda",
+        "descripcion": "Luisa Fernanda es un proyecto de cartel publicitario para la zarzuela que iba a hacerse en la Escuela Superior de Canto, para este cartel en específico se buscaba reivindicar la figura de la mujer, profundizando en la invisibilización de la mujer en aquella época por los roles impuestos por la sociedad. Para el diseño final se decidió que se mirara a Luisa Fernanda como objetivo, más exactamente buscando el amor de la protagonista, siendo que el ojo significa simbólicamente las miradas de Javier y Vidal, quienes la observan con la intención de conquistarla. El cartel se hizo con Photoshop, buscando un estilo que se inspirara en los carteles de la época, pero con un toque más moderno y fresco, para así atraer a un público más joven a la zarzuela.",
+        "portada": "./assets/img/zarzuela5.jpg",
         "borde": "fino",
-        "etiquetas": ["collage", "animacion", "after effects"],
+        "etiquetas": ["publicidad", "cartelería", "photoshop"],
         "galeria": [
-            {"tipo": "video", "src": "./assets/video/collage-1.mp4"},
-            {"tipo": "video", "src": "./assets/video/collage-2.mp4"}
-        ]
-    },
-    {
-        "id": 5,
-        "nombre": "Desenrédate",
-        "descripcion": "COBACH, la educación pública superior en Méxic, quiere crear una campaña sobre juventud, redes sociales y bienestar digital. La iniciativa abordará una perspectiva positiva, cercana y no patologizante, buscando romper el estigma en torno a la saturación tecnológica, enseñar a identificar señales de malestar y fomentar redes de apoyo mutuo para el autocuidado emocional. Es aquí donde se desarrolla una campaña que proponga abordar el tema mediante la conversación en talleres y también haciendo uso de una página web en la cual se podrán encontrar, recursos, consejos y un espacio seguro para poder tratar los casos concretos de los alumnos que necesiten ayuda. La temática principal de la campaña propone redefinir el concepto de red social a través de la metáfora de una red tejida, cruzando el lenguaje textil maya con el lenguaje de las interfaces digitales (UI).",
-        "portada": "./assets/img/5.png",
-        "borde": "grueso",
-        "etiquetas": ["visual", "archivo"],
-        "galeria": [
-            {"tipo": "imagen", "src": "./assets/img/desenredate1.jpg"},
-            {"tipo": "video", "src": "./assets/video/desenredate5.mp4"},
-            {"tipo": "video", "src": "./assets/video/desenredate2.mp4"},
-            {"tipo": "imagen", "src": "./assets/img/desenredate3.png"},
-            {"tipo": "video", "src": "./assets/video/desenredate4.mp4"}
-
+            {"tipo": "imagen", "src": "./assets/img/zarzuela6.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/zarzuela1.jpg"},
+            {"tipo": "imagen", "src": "./assets/img/zarzuela3.jpg", "grupo": "compacto"},
+            {"tipo": "imagen", "src": "./assets/img/zarzuela 4.jpg", "grupo": "compacto"},
+            {"tipo": "imagen", "src": "./assets/img/zarzuela 2.jpg"}
         ]
     }
 ]
