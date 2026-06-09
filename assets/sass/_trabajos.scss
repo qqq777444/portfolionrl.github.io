@@ -71,6 +71,54 @@
     left: calc(5% + 50px);
 }
 
+@media (max-width: 600px) {
+    .trabajos {
+        height: 740px;
+    }
+
+    .burbuja-trabajo-1 {
+        width: 200px;
+        height: 200px;
+        top: 0;
+        right: 0;
+    }
+
+    .burbuja-trabajo-2 {
+        width: 220px;
+        height: 220px;
+        top: 120px;
+        left: 0;
+    }
+
+    .burbuja-trabajo-3 {
+        width: 130px;
+        height: 130px;
+        top: 280px;
+        right: 20px;
+    }
+
+    .burbuja-trabajo-4 {
+        width: 110px;
+        height: 110px;
+        top: 350px;
+        left: 60px;
+    }
+
+    .burbuja-trabajo-5 {
+        width: 190px;
+        height: 190px;
+        top: 420px;
+        right: 0;
+    }
+
+    .burbuja-trabajo-6 {
+        width: 140px;
+        height: 140px;
+        top: 580px;
+        left: 30px;
+    }
+}
+
 
 .overlay {
     position: fixed;

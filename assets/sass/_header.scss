@@ -57,3 +57,21 @@ transition: color .2s ease;
 .header-superior {
     margin: 2rem auto 0;
 }
+
+@media (max-width: 600px) {
+    .header-index {
+        z-index: 30;
+    }
+
+    .header-superior {
+        margin: 1rem auto 0;
+    }
+
+    .header {
+        padding: .6rem .9rem;
+
+        .header-nav {
+            gap: 1rem;
+        }
+    }
+}
