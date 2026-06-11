@@ -48,3 +48,17 @@
     object-fit: contain;
     mix-blend-mode: multiply;
 }
+
+.home-redes {
+    display: flex;
+    gap: 1.5rem;
+
+    a {
+        font-size: .9rem;
+        transition: color .2s ease;
+
+        &:hover {
+            color: $color-yellow;
+        }
+    }
+}
