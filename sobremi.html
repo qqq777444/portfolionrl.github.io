@@ -14,12 +14,20 @@
 <body class="page-sobremi">
 
     <header class="header header-superior">
-        <a href="https://www.instagram.com/pplulul" target="_blank" class="header-logo">NagaRL</a>
+        <div class="header-left">
+            <span class="header-logo">NagaRL</span>
+
+            <div class="header-lang">
+                <button type="button" class="lang-btn" data-lang="es">esp</button>
+                <span class="lang-sep">/</span>
+                <button type="button" class="lang-btn" data-lang="en">eng</button>
+            </div>
+        </div>
 
         <nav class="header-nav">
-            <a href="trabajos.html">galería</a>
-            <a href="sobremi.html" class="active">sobre-mí</a>
-            <a href="home.html">inicio</a>
+            <a href="trabajos.html" data-i18n="nav_galeria">galería</a>
+            <a href="sobremi.html" class="active" data-i18n="nav_sobremi">sobre-mí</a>
+            <a href="home.html" data-i18n="nav_inicio">inicio</a>
         </nav>
     </header>
 
@@ -37,7 +45,7 @@
                 </div>
 
                 <div class="sobremi-contacto">
-                    <p>Contacto:</p>
+                    <p data-i18n="sobremi_contacto_label">Contacto:</p>
                     <p>nagarodriguezzz@gmail.com</p>
                 </div>
             </div>
@@ -48,8 +56,8 @@
         </section>
 
         <section class="sobremi-texto-bloque">
-            <p class="sobremi-saludo">Hola, soy Naga :)</p>
-            <p class="sobremi-texto">
+            <p class="sobremi-saludo" data-i18n="sobremi_saludo">Hola, soy Naga :)</p>
+            <p class="sobremi-texto" data-i18n="sobremi_texto">
                 Actualmente vivo en Madrid y soy diseñadora gráfica. Me gusta crear propuestas interesantes que llamen la atención, siempre curiosa y dispuesta a aprender, busco experimentar y colaborar con otros.
             </p>
         </section>
@@ -61,11 +69,12 @@
     <script src="./assets/js/TextPlugin.min.js"></script>
     <script src="./assets/js/transiciones.js"></script>
     <script src="./assets/js/efectos.js"></script>
+    <script src="./assets/js/i18n.js"></script>
     <script>
         // Efecto typewriter en el título "SOBRE MÍ"
-        window.addEventListener("DOMContentLoaded", () => {
+        document.addEventListener("langchange", (e) => {
             const titulo = document.querySelector("#sobremi-h1");
-            window.escribirTexto(titulo, "SOBRE MÍ", 1.2);
+            window.escribirTexto(titulo, window.translations[e.detail.lang].sobremi_titulo, 1.2);
         });
     </script>
 </body>

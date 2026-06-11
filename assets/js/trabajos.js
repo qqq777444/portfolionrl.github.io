@@ -7,6 +7,15 @@ const overlayCerrar = document.querySelector("#overlay-cerrar");
 
 let proyectos = [];
 let visorMedia;
+let proyectoActivo = null;
+
+const traducirProyecto = (proyecto) => {
+    const lang = window.getLang ? window.getLang() : "es";
+    if (lang === "en" && proyecto.en) {
+        return { ...proyecto, ...proyecto.en };
+    }
+    return proyecto;
+};
 
 const crearEtiquetas = (etiquetas = []) => {
     if (!etiquetas.length) return "";
@@ -93,10 +102,11 @@ const pintarBurbujas = () => {
 
     proyectos.forEach((proyecto, i) => {
         const clasePosicion = `burbuja-trabajo-${i + 1}`;
+        const traducido = traducirProyecto(proyecto);
 
         html += `
             <div class="burbuja-trabajo ${clasePosicion}" data-id="${proyecto.id}">
-                <img src="${proyecto.portada}" alt="${proyecto.nombre}">
+                <img src="${proyecto.portada}" alt="${traducido.nombre}">
             </div>
         `;
     });
@@ -156,7 +166,16 @@ contenedor.addEventListener("click", (e) => {
     const proyecto = proyectos.find(p => p.id == id);
     if (!proyecto) return;
 
-    abrirOverlay(proyecto);
+    proyectoActivo = proyecto;
+    abrirOverlay(traducirProyecto(proyecto));
+});
+
+
+// Si el overlay está abierto al cambiar de idioma, repintar su contenido.
+document.addEventListener("langchange", () => {
+    if (overlay.classList.contains("activo") && proyectoActivo) {
+        abrirOverlay(traducirProyecto(proyectoActivo));
+    }
 });
 
 

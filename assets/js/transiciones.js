@@ -2,7 +2,7 @@
 
 // 1. ENTRADA: cuando carga la página, los elementos aparecen con fade-in desde abajo
 window.addEventListener("DOMContentLoaded", () => {
-    gsap.from("body > *:not(script):not(#trabajos):not(#overlay):not(.burbujas)", {
+    gsap.from("body > *:not(script):not(#trabajos):not(#overlay):not(.burbujas):not(.home-redes)", {
         opacity: 0,
         y: 30,
         duration: 0.7,

@@ -43,14 +43,12 @@ document.addEventListener("mouseout", (e) => {
 });
 
 // ----- 1. SCRAMBLE TEXT en los enlaces del header -----
-document.querySelectorAll(".header a").forEach(enlace => {
-    const textoOriginal = enlace.textContent;
-
+document.querySelectorAll(".header-nav a").forEach(enlace => {
     enlace.addEventListener("mouseenter", () => {
         gsap.to(enlace, {
             duration: 1,
             scrambleText: {
-                text: textoOriginal,
+                text: enlace.textContent,
                 chars: "!<>-_\\/[]{}—=+*^?#",
                 revealDelay: 0.2,
                 speed: 0.5
@@ -62,13 +60,11 @@ document.querySelectorAll(".header a").forEach(enlace => {
 
 // ----- 2. SCRAMBLE TEXT en el logo NagaRL -----
 document.querySelectorAll(".header-logo").forEach(logo => {
-    const textoOriginal = logo.textContent;
-
     logo.addEventListener("mouseenter", () => {
         gsap.to(logo, {
             duration: 1,
             scrambleText: {
-                text: textoOriginal,
+                text: logo.textContent,
                 chars: "!<>-_\\/[]{}—=+*^?#",
                 revealDelay: 0.2,
                 speed: 0.5
